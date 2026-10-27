@@ -1,0 +1,18 @@
+# Anurag Pandey: Portfolio (React + Vite)
+## Run
+    npm install
+    cp .env.example .env     # then fill in EmailJS keys
+    npm run dev              # http://localhost:5173
+    npm run build            # output in dist/
+## Edit content
+Everything (links, services, projects, skills) is in `src/data/content.js`. Leave a link as '' to hide its button.
+## Contact form (EmailJS, free tier)
+1. Sign up at emailjs.com, add an Email Service (Gmail) -> copy Service ID.
+2. Create a template using variables {{name}}, {{email}}, {{service}}, {{budget}}, {{message}}; set "To" to your email -> copy Template ID.
+3. Account > API keys -> copy Public Key.
+4. Put the 3 values in `.env`. In Vercel/Netlify, add the same 3 variables in project settings.
+`.env` is git-ignored. EmailJS public keys are visible in the browser by design; in EmailJS, restrict allowed domains and enable reCAPTCHA for stronger spam protection.
+## Deploy
+    git init && git add . && git commit -m "Initial portfolio"
+    git branch -M main && git remote add origin https://github.com/anurag-pandey123/portfolio.git && git push -u origin main
+Vercel: vercel.com > Add New Project > import repo > framework Vite > add env vars > Deploy. Custom domain: Project > Settings > Domains, then add the DNS records shown. HTTPS is automatic.
